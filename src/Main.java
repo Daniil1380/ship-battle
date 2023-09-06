@@ -6,5 +6,8 @@ public class Main {
 
         System.out.println(field);
 
+        Game game = new Game();
+        game.start(field);
+
     }
 }

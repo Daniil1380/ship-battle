@@ -9,7 +9,8 @@ public class FieldGenerator {
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                boolean isShip = random.nextBoolean();
+                int number = random.nextInt(100);//0-99
+                boolean isShip = (number < 5);//true, если будет значение от 0 до 9
                 cells[i][j] = new Cell(isShip);
             }
         }
