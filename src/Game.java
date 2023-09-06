@@ -2,24 +2,29 @@ import java.util.Scanner;
 
 public class Game {
 
-    public void start(Field field) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Игра началась");
-        System.out.println("-------------");
-        System.out.println("Введите число:");
-        int row = scanner.nextInt();
-        System.out.println("Введите второе число:");
-        int column = scanner.nextInt();
-        Cell[][] cells = field.getCells();
-        Cell targetCell = cells[row][column];
+    private MessagePrinter messagePrinter;
+    private Scanner scanner;
 
-        if (targetCell.isShip()) {
-            System.out.println("Молодец");
+    public Game(MessagePrinter messagePrinter, Scanner scanner) {
+        this.messagePrinter = messagePrinter;
+        this.scanner = scanner;
+    }
+
+    public void start(Field field) {
+
+        messagePrinter.printInfo();
+        int row = scanner.nextInt();
+        messagePrinter.printSecondNumber();
+        int column = scanner.nextInt();
+
+        boolean result = field.checkCell(row, column);
+
+        if (result) {
+            messagePrinter.printWinMessage();
         }
         else {
-            System.out.println("Обидно");
+            messagePrinter.printLoseMessage();
         }
-
     }
 
 }

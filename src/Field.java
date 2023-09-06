@@ -8,6 +8,11 @@ public class Field {
         this.cells = cells;
     }
 
+    public boolean checkCell(int row, int column) {
+        Cell targetCell = cells[row][column];
+        return targetCell.isShip();
+    }
+
     public Cell[][] getCells() {
         return cells;
     }
